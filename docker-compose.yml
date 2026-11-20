@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app   # o código fica na sua pasta e o container enxerga as mudanças na hora
+    restart: unless-stopped

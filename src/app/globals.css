@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), var(--font-nunito), ui-sans-serif, sans-serif;
+}
+
+@theme {
+  --color-cream: #fff8f5;      /* fundo */
+  --color-ink: #5a3a44;        /* texto principal (escuro, para dar contraste) */
+  --color-ink-soft: #7d5d68;   /* texto secundário */
+  --color-blush-50: #fff0f5;
+  --color-blush-100: #ffe1eb;
+  --color-blush-200: #ffc8db;
+  --color-blush-300: #ffa9c6;
+  --color-blush-400: #ff86ae;
+  --color-lilac: #e6dcf7;
+  --color-peach: #ffdac8;
+  --color-mint: #cdebdd;
+}
+
+/* Orelhinhas de gato no topo de um card */
+.orelhas {
+  position: relative;
+}
+.orelhas::before,
+.orelhas::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 28px;
+  height: 28px;
+  background: inherit;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+.orelhas::before {
+  left: 20px;
+  transform: rotate(-10deg);
+}
+.orelhas::after {
+  right: 20px;
+  transform: rotate(10deg);
+}
