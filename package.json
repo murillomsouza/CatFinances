@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
-    "usuario:criar": "tsx scripts/criar-usuario.ts"
+    "usuario:criar": "tsx scripts/criar-usuario.ts",
+    "test": "vitest run"
   },
   "dependencies": {
     "better-sqlite3": "^13.2.0",
@@ -20,7 +21,7 @@
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
     "@types/better-sqlite3": "^9.6.0",
-    "@types/node": "^20",
+    "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "drizzle-kit": "^0.31.11",
@@ -28,6 +29,7 @@
     "eslint-config-next": "16.4.6",
     "tailwindcss": "4.3.3",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.1.1"
   }
 }

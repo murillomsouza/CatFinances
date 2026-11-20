@@ -9,6 +9,13 @@ import * as schema from "./schema";
 const caminho =
   process.env.DATABASE_PATH ?? path.join(process.cwd(), "data", "catfinances.db");
 
+const CATEGORIAS_INICIAIS = [
+  { nome: "Delivery", emoji: "🛵" },
+  { nome: "Mercado", emoji: "🛒" },
+  { nome: "Roupas", emoji: "👗" },
+  { nome: "Eletrônicos", emoji: "🎧" },
+];
+
 function abrir() {
   fs.mkdirSync(path.dirname(caminho), { recursive: true });
   const sqlite = new Database(caminho);
@@ -18,6 +25,11 @@ function abrir() {
   const db = drizzle(sqlite, { schema });
   // Aplica sozinho as migrações pendentes, em dev e em produção
   migrate(db, { migrationsFolder: path.join(process.cwd(), "drizzle") });
+
+  // Primeira vez: cria as categorias iniciais
+  if (db.select().from(schema.categorias).all().length === 0) {
+    db.insert(schema.categorias).values(CATEGORIAS_INICIAIS).run();
+  }
   return db;
 }
 
