@@ -7,6 +7,7 @@ services:
       - "3000:3000"
     environment:
       DATABASE_PATH: /data/catfinances.db
+      COOKIE_SECURE: "false"   # mudar para "true" quando o app usar HTTPS
     volumes:
       - .:/app          # o código fica na sua pasta e o container enxerga as mudanças na hora
       - ./data:/data    # o banco SQLite fica aqui (pasta ignorada pelo git)
